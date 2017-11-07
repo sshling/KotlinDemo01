@@ -42,7 +42,14 @@ fun t06_d2() {
             .forEach{ println(it)}
 
 }
+fun t06_d3(){ //字符串
+    var a:String="hello \n world"
+    println(a) // \n 转义为换行
+    //让字符串保持原样输出, 三个双引号
+    var b:String=""" hello \n world """
+    println("b=$b")
 
+}
 fun main(args: Array<String>) {
-    t06_d2()
+    t06_d3()
 }
