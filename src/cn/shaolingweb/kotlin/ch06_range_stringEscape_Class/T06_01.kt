@@ -37,19 +37,19 @@ fun t06_d2() {
     /*
     listOf() 方法
      */
-    var arr = listOf<String>("a", "ba")
-    //TODO 查看arr的其它方法
+    var list = listOf<String>("a", "ba")
+    //class java.util.Arrays$ArrayList
+    println("listOf类型："+list.javaClass)
 
-
-    for (item in arr) {
+    for (item in list) {
         println(item)
     }
     when{ //when的使用,代替　if
-        "a" in arr -> println("a in collection")
+        "a" in list -> println("a in collection")
     }
 
     // it 表示当前遍历到的某元素
-    arr.filter { it.length>1 }//过滤
+    list.filter { it.length>1 }//过滤
             .map { it.toUpperCase() }//映射
             .sorted()//排序
             .forEach{ println(it)}//遍历输出
@@ -74,5 +74,5 @@ fun t06_d3(){ //字符串
 
 
 fun main(args: Array<String>) {
-    t06_d3()
+    t06_d2()
 }

@@ -20,6 +20,16 @@ class MyChild3():MyParent3(){
         println("child method")
         super.method()//不必放到第一行
     }
+    /*
+    1. val 可以被　val 属性　override
+    2. val 可以被　var　属性 override
+        val eq　get()
+        var eq get()/set()
+    3. var　不可以被　val 属性　override
+
+    本质上　val相当于get(), var相当于get()/set()
+
+     */
     override val name:String get()=super.name+" and child"
 }
 
