@@ -1,10 +1,10 @@
-package cn.shaolingweb.kotlin.ch01
+package cn.shaolingweb.kotlin.ch05_when
 
 /**
  * Any,类比 java Object,看Any注释---root,every ... superclass
  * Any 跟 Object不是一回事，是不同语言的
  */
-fun d1_convert2Uppercase(str: Any): String? {
+fun d1_convert2Uppercase(str: Any): String? {//? 表示可能返回空
     if (str is String) {
         //str --> smart cast to Kotlin.String,比java智能多了，无需再强制转换了
         return str.toUpperCase()
@@ -31,8 +31,8 @@ fun d2_arr() { //数组定义
         println(item)
     }
     println("-------2 index ---------")
-    for (i: Int in array.indices) {
-        println("array[$i]=${array[i]}")
+    for (i: Int in array.indices) { //下标
+        println("array[$i]=${array[i]}") //字符串模板
     }
     println("-------3  withIndex---------")
     for ((idx, value) in array.withIndex()) {
@@ -40,9 +40,14 @@ fun d2_arr() { //数组定义
     }
 }
 
+
 fun t05_d3_when_v1(str: String): String {
     /*
-     when  类比java if...else if... else if...else... , swich....case....
+     kotlin when
+         类比java:
+            if...else
+            if... else if...else... ,
+            swich....case....
      */
 
 /*    when(str){ //v1: when(变量或表达式)
@@ -52,7 +57,7 @@ fun t05_d3_when_v1(str: String): String {
         else ->return "other input" //默认处理
     }
 */
-    return when (str) {//v2: 直接返回when,更简洁
+    return when (str) {//v2: 直接返回when,省略return,更简洁
         "a" -> "A"
         "b" -> "B"
         "ab" -> "AB"
@@ -60,7 +65,17 @@ fun t05_d3_when_v1(str: String): String {
     }
 }
 
-fun t05_d3_when_v2(str: String) = //v3 :更简洁
+/*
+v3 :更简洁
+
+fun 函数名(参数列表)=
+    when(变量或表达式){
+
+    }
+
+when 类似一个函数体，可以赋值给函数
+ */
+fun t05_d3_when_v3(str: String) =
         when (str) {
             "a" -> "A"
             "b" -> "B"
@@ -68,12 +83,14 @@ fun t05_d3_when_v2(str: String) = //v3 :更简洁
             else -> "other input"
         }
 
-fun t05_d3_when_v3() {
-    var a = 6//建设a是变量
+fun t05_d3_when_v4() {
+    var a = 6//假设　a　是变量
+
+    //when表达式类似一个值，可以赋值给一个变量
     var result = when (a) {
         1 -> {
             println("a=1")
-            10
+            10//输出，并返回10
         }
         2 -> {
             println("a=2")
@@ -92,8 +109,9 @@ fun t05_d3_when_v3() {
             50
         }
     }
+    println("a=$a ,result=$result")
 }
 
 fun main(args: Array<String>) {
-
+    t05_d3_when_v4()
 }
